@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Online Store</title>
+</head>
+<body>
+    <h2>Online Store Sales Tracker</h2>
+    <p id="output1"></p>
+    <p id="output2"></p>
+    <script>
+        TshirtCount = 5;
+        TshirtPrice = 400;
+        CapCount = 3;
+        CapPrice = 150;
+        TotalEarings = (TshirtCount * TshirtPrice) + (CapCount * CapPrice);
+        document.getElementById("output1").innerHTML = "Totalearnings (400 per T-shirt):$" + TotalEarings
+        TshirtPrice = 450;
+        updatedEarnings = (TshirtCount * TshirtPrice) + (CapCount * CapPrice);
+        document.getElementById("output2").innerHTML = "Updated Total earnings (₹450 per T-shirt): ₹" + updatedEarnings;
+    </script>
+</body>
+</html>
