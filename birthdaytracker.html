@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Birthday Tracker</title>
+</head>
+<body>
+
+<h2>Birthday Tracker</h2>
+
+<div id="result"></div>
+
+<script>
+const friend = {
+    name: "John",
+    birthDate: "1999-07-05"
+};
+
+function getBirthdayDetails(friend) {
+    const birthDate = new Date(friend.birthDate);
+
+    const year = birthDate.getFullYear();
+    const monthName = birthDate.toLocaleString('en-US', { month: 'long' });
+    const day = birthDate.getDate();
+
+    const today = new Date();
+    let age = today.getFullYear() - year;
+
+    const hasHadBirthday =
+        today.getMonth() > birthDate.getMonth() ||
+        (today.getMonth() === birthDate.getMonth() && today.getDate() >= day);
+
+    if (!hasHadBirthday) {
+        age--;
+    }
+
+    return `${friend.name} was born on ${day} ${monthName}, ${year} and is ${age} years old.`;
+}
+document.getElementById("result").innerText = getBirthdayDetails(friend);
+</script>
+
+</body>
+</html>
