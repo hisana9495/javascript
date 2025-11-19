@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Guessing Game</title>
+</head>
+<body>
+  <h2>Guess the Number (1 to 5)</h2>
+  <p>You have 5 chances to guess the correct number.</p>
+  <label for="guess">Enter your guess:</label>
+  <input type="number" id="guess" min="1" max="5">
+  <button onclick="playGame()">Submit</button>
+  <h3>Game Log:</h3>
+  <ul id="log"></ul>
+  <script>
+    let chances = 0;
+    function playGame() {
+      if (chances >= 5) {
+        alert("Game over. No more chances left.");
+        return;
+      }
+      const guess = parseInt(document.getElementById("guess").value);
+      const log = document.getElementById("log");
+      let word = "";
+      switch (guess) {
+        case 1: word = "One"; break;
+        case 2: word = "Two"; break;
+        case 3: word = "Three"; break;
+        case 4: word = "Four"; break;
+        case 5: word = "Five"; break;
+        default:
+          const invalid = document.createElement("li");
+          invalid.textContent = "Invalid input. Skipping this chance.";
+          log.appendChild(invalid);
+          return; 
+      }
+      chances++;
+      if (guess === 3) {
+        const success = document.createElement("li");
+        success.textContent = `You entered ${word}. You guessed it right!`;
+        log.appendChild(success);
+        chances = 5; 
+        return; 
+      } else {
+        const fail = document.createElement("li");
+        fail.textContent = `You entered Wrong ${word}.  Try again.`;
+        log.appendChild(fail);
+      }
+      if (chances === 5) {
+        const over = document.createElement("li");
+        over.textContent = "Game over.";
+        log.appendChild(over);
+      }
+    }
+  </script>
+</body>
+</html>
