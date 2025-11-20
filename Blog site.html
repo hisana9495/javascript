@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Comment Filter System</title>
+</head>
+<body>
+  <h2>Blog Comment Filter</h2>
+  <textarea id="userComment" rows="5" cols="80">
+I think this movie was BAD and 100% Stupid! But the Acting was Amazing and 3 actors were great.
+  </textarea>
+  <br><br>
+  <button onclick="filterComment()">Process Comment</button>
+  <h3>Result:</h3>
+  <p><strong>Cleaned Comment:</strong> <span id="cleanedComment"></span></p>
+  <p><strong>Number Count:</strong> <span id="numberCount"></span></p>
+  <p><strong>Capitalized Word Count:</strong> <span id="capitalCount"></span></p>
+  <script>
+    function filterComment() {
+      const comment = document.getElementById("userComment").value;
+      const bannedWords = /\b(bad|ugly|stupid)\b/gi;
+      const cleaned = comment.replace(bannedWords, "***");
+      const numberMatches = comment.match(/\d+/g);
+      const numberCount = numberMatches ? numberMatches.length : 0;
+      const capitalizedWords = comment.match(/\b[A-Z][a-zA-Z]*\b/g);
+      const capitalCount = capitalizedWords ? capitalizedWords.length : 0;
+      document.getElementById("cleanedComment").textContent = cleaned;
+      document.getElementById("numberCount").textContent = numberCount;
+      document.getElementById("capitalCount").textContent = capitalCount;
+    }
+  </script>
+</body>
+</html>
