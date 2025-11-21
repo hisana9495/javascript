@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JSON to JS Example</title>
+</head>
+<body>
+  <h2>Check the console for output</h2>
+
+  <script>
+    // Example JSON string (you can replace with your own)
+    const jsonText = '{"name":"Alice","email":"alice@example.com","message":"Hello Copilot!"}';
+
+    // Named arrow function
+    const showMessage = () => {
+      try {
+        // Convert JSON text into JavaScript object
+        const userObj = JSON.parse(jsonText);
+
+        // Print message with name
+console.log(`Message received from ${userObj.name}`);
+      } catch (error) {
+        // Handle broken JSON
+        console.error("Error: Invalid JSON data");
+      }
+    };
+
+    // Run the function
+    showMessage();
+  </script>
+</body>
+</html>
